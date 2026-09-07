@@ -55,8 +55,9 @@ Thumbs.db
 # Archivos de entorno y credenciales
 .env
 .env.local
-environments/environment.development.ts
-environments/environment.ts
+**/src/environments/environment.ts
+**/src/environments/environment.development.ts
+**/src/environments/environment.*.ts
 
 
 assistant-noa-ec9fbc3f9598.json

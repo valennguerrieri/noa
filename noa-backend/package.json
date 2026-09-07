@@ -34,6 +34,12 @@
         "to": "frontend-dist"
       }
     ],
+    "extraResources": [
+      {
+        "from": ".env",
+        "to": ".env"
+      }
+    ],
     "win": {
       "target": "nsis",
       "icon": "noa-avatar.ico",

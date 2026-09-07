@@ -1,4 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
+import dotenv from 'dotenv';
 import path from 'node:path';
 import { fileURLToPath } from 'url';
 
@@ -6,6 +7,12 @@ import { GoogleAuthService } from './auth/google-auth.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const rutaEnv = app.isPackaged
+  ? path.join(process.resourcesPath, '.env')
+  : path.resolve(__dirname, '.env');
+
+dotenv.config({ path: rutaEnv });
 
 let appWindow, db;
 const authService = new GoogleAuthService();

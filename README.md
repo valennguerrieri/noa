@@ -1,59 +1,33 @@
-# Noa
+<div align="center">
+  <img src="noa-frontend/src/assets/noa-avatar.png" alt="NOA Logo" width="120" />
+  <h1>NOA - Asistente & Organizador Personal</h1>
+  <p><strong>Aplicación de escritorio desarrollada con Angular y Electron</strong></p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+  <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular" />
+  <img src="https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+  <img src="https://img.shields.io/badge/Google_Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white" alt="Gemini" />
+</div>
 
-## Development server
+---
+### Desarrollado por Valentina Guerrieri
+---
 
-To start a local development server, run:
+## 📌 Descripción
 
-```bash
-ng serve
-```
+**NOA** es un entorno integral de productividad y organización personal desarrollado como aplicación de escritorio para Windows. Combina la agilidad de una interfaz web moderna en **Angular** con las capacidades de sistema nativo provistas por **Electron**, incorporando persistencia en la nube y asistencia impulsada por Inteligencia Artificial.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Módulos y Funcionalidades
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* **🤖 Asistente Virtual Inteligente:** Integración conversacional contextualizada impulsada por la API de **Google Gemini**.
+* **📅 Agenda y Calendario:** Visualización anual, mensual y semanal con gestión de eventos.
+* **💰 Finanzas y Control de Gastos:** Registro clasificado de ingresos/gastos y balance presupuestario visual.
+* **🌱 Seguimiento de Hábitos:** Monitoreo diario y métricas de consistencia en rutinas.
+* **🎯 Metas:** Planificación estructurada de objetivos a corto o largo plazo.
+* **📝 Gestión de Notas:** Bloque de notas dinámico con categorización rápida.
+* **🔐 Autenticación Segura:** Inicio de sesión OAuth 2.0 con cuenta de Google y persistencia con Supabase.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---

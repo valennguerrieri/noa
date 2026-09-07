@@ -1,0 +1,36 @@
+<div class="cuad-dias">
+    <div class="celda-dia" *ngFor="let dia of dias" (click)="modalEvento.abrirModalEventos(dia)" [class.otro-mes]="!dia.esMesActual" [class.hoy]="dia.esHoy"> 
+        <p>{{ dia.numero }}</p>
+        <i *ngIf="dia.eventos.length > 0" class="fas fa-circle"></i>
+    </div>
+</div>
+
+
+<div *ngIf="modalEvento.mostrarEventos" class="modal-cobertura" (click)="modalEvento.cerrarModalEventos()">
+    
+    <div class="modal-vista">
+        
+        <div class="modal-arriba">
+            <h1>Eventos del {{ modalEvento.diaSeleccionado.fecha | date: 'dd/MM'}}</h1>
+            <button class="button-close" (click)="modalEvento.cerrarModalEventos()">x</button>
+        </div>
+        
+        <div class="entidad-list">
+            <div class="entidad-card" *ngFor="let evento of modalEvento.diaSeleccionado?.eventos" [routerLink]="['/features/agenda/componentes/details-eventos', evento.id]" [style.background-color]="'var(--tipo-' + evento.tipo.toLowerCase() + ')'">
+                <div class="e-fecha">
+                    <p> {{ evento.fecha | date: 'HH:mm' }}hs</p>
+                </div>
+
+                <div class="e-titulo">
+                    <p> {{ evento.titulo }} </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="entidad-sin-elem" *ngIf="modalEvento.diaSeleccionado.eventos.length === 0">
+            <p>No hay eventos.</p>
+        </div>
+
+    </div>
+</div>
+

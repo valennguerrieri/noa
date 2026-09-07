@@ -1,0 +1,154 @@
+@import "../../../../../styles/buttons.css";
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;  
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.zona_titulo{
+    z-index: 10;
+}
+
+.titulo{
+    color: white;
+    font-family: 'Trebuchet MS';
+    letter-spacing: 3px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    background-color: #b3b3ce;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.068);
+    padding: 10px 30px 25px 30px;
+    max-width: 450px;
+}
+
+.habitos-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.habitos-info h1{
+    font-family:'Trebuchet MS';
+    font-size: 1.1rem;
+    color: #0d1421;
+    letter-spacing: 3px;
+}
+
+.arriba{
+    width: 100%;
+    text-align: left;
+}
+
+.h-descripcion{
+    word-break: break-word;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.h-descripcion h1{
+    color: #0d1421;
+    font-family: sans-serif;
+    font-size: 2rem;
+    margin: 0px;
+}
+
+.abajo{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.linea-separadora{
+    border: 0;   
+    height: 2px;           
+    background-color: #0d1421; 
+    width: 100%;           
+    opacity: 1;          
+}
+
+.porcentajes{
+    display: flex;
+    gap: 15px;
+}
+
+.porcentajes span{
+    font-family: fantasy;
+    font-size: 3.5rem;
+}
+
+.porc-cumplido{
+    color: #026326;
+}
+
+.porc-fallido{
+    color: #c20d0d;
+}
+
+.resumen p{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;   
+}
+
+.card-stats{
+    align-self: center;
+    background-color: #9999c74d;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(250, 247, 247, 0.61);
+    text-align: center;
+    max-width: 200px;
+}
+
+.grafico-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    height: 250px;
+    width: 100%;
+}
+
+.grafico-wrapper canvas{
+    margin-top: 10px;
+}
+
+.text-verde{
+    color: #377e39;
+    font-weight: bold;
+}
+
+.button-contenedor{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-cobertura {
+    position: fixed; /*Se posiciona sobre TODA la ventana*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /*Para el fondo*/
+    backdrop-filter: blur(5px);           
+    
+    /*Posición del form*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000; 
+}

@@ -1,0 +1,170 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #0d1421; 
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: white;
+    z-index: 20; 
+    overflow-y: auto;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
+.titulo{
+    text-align: center;
+    /* font-family: 'Courier New'; */
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin: 0px 20px 10px 20px;
+}
+
+.form-etiqueta{
+    /* margin-bottom: 20px;  */
+}
+
+label{
+    display: block; 
+    margin-bottom: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 18px;
+    color: #a0a0c0; /*Lavanda claro*/
+}
+/* 
+form{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 10px;
+} */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Separación entre la grilla de inputs y los botones */
+}
+
+/* La grilla se aplica SOLO a los inputs */
+.form-grid {
+    display: grid;
+    /* grid-template-rows: auto; No es estrictamente necesario, grid lo maneja solo */
+    grid-template-columns: repeat(2, auto); /* 1fr asegura que ambas columnas midan igual */
+    gap: 10px; 
+}
+
+.form-tit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px
+}
+
+.form-tit img{
+    height: 30px;
+    margin-bottom: 8px;
+}
+
+
+.form-input input, .form-input textarea, select{
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #d8dbe2;
+    border: none;
+    border-radius: 8px;
+    /* font-family: 'Segoe UI'; */
+    font-size: 15px;
+    color: black; 
+    box-sizing: border-box;
+}
+
+.form-buttons{
+    display: flex;
+    place-content: center;
+    gap: 7px;
+}
+
+/* Campo de fecha = readonly */
+.form-input input[readonly]{
+    background-color: #8f94a0;
+    cursor: not-allowed;
+}
+
+.form-error span{
+    color: #ff6b6b; 
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
+
+button{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+    /* width: 30%; */
+}
+
+button:hover{
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.button-submit{
+    background-color: #28a745;
+    color: white;
+}
+
+.button-submit:disabled{
+    background-color: #5a625c;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.button-submit:disabled:hover{
+    background-color: #444945;
+}
+
+.button-submit:hover{
+    background-color: #1e7232;
+    color: white;
+}
+
+.button-cancel{
+    background-color: #dc3545; 
+    color: white;
+}
+
+.button-cancel:hover{
+    background-color: #a02330; 
+    color: white;
+}
+
+.color-option{
+    display: inline-table;
+    border-radius: 15px;
+    width: 33%;
+}
+
+/* .lapiz-fondo{
+    position: absolute;
+    display: flexbox;
+    z-index: 0;
+    pointer-events: none;
+    transform: rotate(15deg);
+}
+
+.lapiz-fondo img{
+    padding-top: 50px;
+    object-fit: contain;
+    width: 50%; 
+    opacity: 0.10;
+} */

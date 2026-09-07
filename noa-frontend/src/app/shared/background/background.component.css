@@ -1,0 +1,64 @@
+.background-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+
+.background-header, .background-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #0d1421;
+    position: relative; 
+    z-index: var(--z-fondo, 10);
+}
+
+.background-header{
+    padding: 0px 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.background-footer{
+    min-height: 8%;
+    max-height: 30%;
+}
+
+.contenido-scroll{
+    flex-grow: 1; /* Ocupa todo el alto disponible entre header y footer */
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    padding: 0; 
+}
+
+.contenido-scroll::-webkit-scrollbar{
+    display: none;
+}
+
+.title{
+    font-size: min(3vw, 6rem); 
+        /*vw = porcentaje del ancho visible de la pantalla, se adapta al tamaño*/
+        /*rem = relativo al tamaño de fuente del doc, medida constante*/
+    color: white;
+    font-family: 'Courier New';
+    letter-spacing: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.perfil{
+    width: 45px;
+}
+
+.menuh{
+    width: 55px;
+    cursor: pointer;
+}

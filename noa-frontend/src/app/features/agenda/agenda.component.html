@@ -1,0 +1,63 @@
+<app-background>
+    <div class="features-wrapper">
+        <div class="features-contenedor">
+
+            <div class="zona_1">
+                <h1 class="titulo">AGENDA</h1>
+
+                <div class="derecha">
+                    <div class="filtro">
+                        @if (listado) {
+                            <select class="filtro-select" [value]="filtroSeleccionado" (change)="filtroTipos($event)">
+                                <option value="Todos">Todos</option>
+                                <option value="Estudio">Estudio</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Trabajo">Trabajo</option>
+                                <option value="Salud">Salud</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        }@else {
+                            <select class="filtro-select" [value]="vistaSeleccionada" (change)="cambiarVista($event)">
+                                <option value="Semanal">Semanal</option>
+                                <option value="Mensual">Mensual</option>
+                                <option value="Anual">Anual</option>
+                            </select>
+                        }
+                        
+                    </div>
+
+                    <div class="item" (click)="mostrarListado()">
+                        @if (listado) {
+                            <img src="assets/agenda.png" alt="ag">
+                        }@else {
+                            <img src="assets/list.png" alt="list">
+                        }
+                    </div>
+
+                </div>    
+            </div>
+            
+            <div class="zona_2">
+                @if (listado) {
+                    <app-list-eventos [tipoFiltro]="filtroSeleccionado" (volverEvent)="volverAlInicio()"></app-list-eventos>
+                }@else {
+                    <app-calendario-eventos [eventos]="eventos()" [vistaSeleccionada]="vistaSeleccionada"></app-calendario-eventos>
+                }
+            </div>
+            
+            <div class="zona_3" (click)="modalEvento.abrirFormulario()">
+                <h1> + </h1>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="modalEvento.mostrarFormulario" class="modal-cobertura" (click)="modalEvento.cerrarFormulario()">
+        
+        <div class="modal-contenido">
+            <app-add-eventos (cerrar)="modalEvento.cerrarFormulario()"></app-add-eventos>
+        </div>
+
+    </div>
+</app-background>

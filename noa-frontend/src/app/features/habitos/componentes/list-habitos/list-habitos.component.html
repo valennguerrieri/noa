@@ -1,0 +1,75 @@
+<div class="contenedor">
+    <div class="arriba">
+        <h1>tracker</h1>
+
+        <div class="buttons">
+            <button class="nav-button" (click)="cambiarMes(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <span class="titulo-mes">{{ fechaActual | date:'MMMM yyyy' }}</span>
+
+            <button class="nav-button" (click)="cambiarMes(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    
+    
+    <hr class="linea-separadora">
+
+    <div class="sin-habitos" *ngIf="habitosFiltrados.length === 0">
+        <div class="sh-frase">
+            <p>"Somos lo que hacemos repetidamente. La excelencia, entonces, no es un acto, sino un hábito"</p>
+        </div>
+        <p>Aún no tienes hábitos registrados.</p>
+    </div>
+
+    <div class="habitos-list" *ngIf="habitosService.habitos().length > 0">
+
+        <div class="habitos-card" *ngFor="let habito of habitosFiltrados; let i = index">
+
+            <div class="habito-izq" [routerLink]="['/features/habitos/componentes/details-habitos', habito.id]">
+                <div class="img-fondo">
+                    <img src="assets/fon-habitos.png" alt="fon-habitos">
+                </div>
+
+                <div class="info">
+                    <div class="h-id">
+                        <!-- <p> N°{{ habito.id }}</p> -->
+                        <p> N°{{ i + 1 }}</p>
+                    </div>
+
+                    <div class="h-titulo">
+                        <p>{{ habito.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="habitos-der">
+
+                <div class="calendario-mini">
+                    <div class="semana">
+                        <p>D</p>
+                        <p>L</p>
+                        <p>M</p>
+                        <p>M</p>
+                        <p>J</p>
+                        <p>V</p>
+                        <p>S</p>
+                    </div>
+                </div>
+
+                <div class="calend-dias">
+                    <div class="celda-dia" *ngFor="let dia of habito.grilla" [ngClass]="dia.clase" (click)="estadoDia(habito, dia)" [class.hoy]="dia.esHoy"> 
+                        {{ dia.numero }}
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</div>

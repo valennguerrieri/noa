@@ -1,0 +1,45 @@
+<div class="contenedor">
+    <div class="arriba">
+        <h1>listado</h1>
+
+        <div class="buttons">
+            <button class="nav-button" (click)="cambiarMes(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <span class="titulo-mes">{{ fechaActual | date:'MMMM yyyy' }}</span>
+
+            <button class="nav-button" (click)="cambiarMes(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+    </div>
+    
+    <hr class="linea-separadora">
+
+    <div class="sin-eventos" *ngIf="eventosFiltrados.length === 0">
+        @if (this.filtro === 'Todos') {
+            <p>Aún no tienes eventos pendientes.</p>
+        }@else {
+            <p>Aún no tienes eventos de '{{ this.filtro }}' pendientes.</p>
+        }
+        <button class="button-este-mes" (click)="irAEsteMes()">Ir a HOY</button>
+    </div>
+
+    <div class="eventos-list" *ngIf="eventosFiltrados.length > 0">
+        <div class="evento-card" *ngFor="let evento of eventosFiltrados" [routerLink]="['/features/agenda/componentes/details-eventos', evento.id]" [style.background-color]="'var(--tipo-' + evento.tipo.toLowerCase() + ')'">
+            <div class="e-fecha">
+                <p> {{ evento.fecha | date: 'dd/MM/yyyy HH:mm' }}</p>
+            </div>
+
+            <div class="e-titulo">
+                <p> {{ evento.titulo }} </p>
+            </div>
+        </div>
+
+        <button class="button-este-mes" (click)="irAEsteMes()">Ir a HOY</button>
+
+    </div>
+
+</div>

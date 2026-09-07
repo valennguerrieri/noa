@@ -1,0 +1,97 @@
+<app-background>
+
+    <div class="wrapper">
+
+        <div class="zona_titulo">
+            <h1 class="titulo" [routerLink]="['/features/agenda']">AGENDA</h1>
+        </div>
+
+        <div class="contenedor">
+            <div class="evento-info">
+
+                <div class="e-tipo" [style.background-color]="'var(--tipo-' + evento.tipo.toLowerCase() + ')'">
+                    <p [attr.data-tipo]="evento.tipo.toLowerCase()">{{ evento.tipo }}</p>
+                </div>
+
+                <div class="arriba">
+                    
+                    @switch (evento.tipo) {
+                        @case ('Salud') {
+                            <div class="img-fondo">
+                                <img src="assets/estetoscopio.png" alt="salud">
+                            </div>
+                        }
+                        @case ('Estudio') {
+                            <div class="img-fondo">
+                                <img src="assets/libros.png" alt="estudio">
+                            </div>
+                        }
+                        @case ('Trabajo') {
+                            <div class="img-fondo">
+                                <img src="assets/trabajo.png" alt="trabajo">
+                            </div>
+                        }
+                        @case ('Personal') {
+                            <div class="img-fondo">
+                                <img src="assets/taza-cafe.png" alt="personal">
+                            </div>
+                        }
+                        @case ('Otro') {
+                            <div class="img-fondo">
+                                <img src="assets/pin.png" alt="otro">
+                            </div>
+                        }
+                    }
+
+                    <div class="e-titulo">
+                        <p>{{ evento.titulo }}</p>
+                    </div>
+
+                    <div class="e-fecha">
+                        <p>{{ evento.fecha | date: 'dd/MM/yyyy HH:mm'}}</p>
+                    </div>
+
+                    <div class="info">
+                        <div class="e-lugar">
+                            <img src="assets/ubi.png" alt="lugar">
+                            @if (evento.lugar) {
+                                <p>{{ evento.lugar }}</p>
+                            }@else {
+                                <p>Sin ubicación definida.</p>
+                            }
+                        </div>
+
+                        <div class="e-descripcion">
+                            <img src="assets/descrip.png" alt="descrip">
+                            @if (evento.descripcion) {
+                                <p>{{ evento.descripcion }}</p>
+                            }@else {
+                                <p>Sin descripción definida.</p>
+                            }
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="abajo" [style.background-color]="'var(--tipo-' + evento.tipo.toLowerCase() + ')'">
+                    <!-- <div class="e-id">
+                        <h1>EVENTO N°{{ evento.id }}</h1>
+                    </div> -->
+                    <div class="button-contenedor">
+                        <button class="button-update" (click)="modalEvento.abrirFormulario()">Modificar</button>
+                        <button class="button-delete" (click)="eliminarEvento(evento.id!)" [routerLink]="['/features/agenda']">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="modalEvento.mostrarFormulario" class="modal-cobertura">
+        
+        <div class="modal-contenido">
+            <app-update-eventos (cerrar)="modalEvento.cerrarFormulario()"></app-update-eventos>
+        </div>
+
+    </div>
+</app-background>

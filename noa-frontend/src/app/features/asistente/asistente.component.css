@@ -1,0 +1,125 @@
+@import "../../../styles/features.css";
+
+.zona_2{
+  text-align: -webkit-center;
+}
+
+.chat-container{
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  max-height: stretch;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.075);
+}
+
+.chat-header{
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  /* background-color: #14301a; */
+  background: linear-gradient(135deg, #14301a 0%, #3e734a 100%);
+}
+
+.chat-avatar{
+  font-size: 2rem;
+  margin-right: 15px;
+}
+
+.chat-avatar img{
+  height: 40px;
+}
+
+.info-noa h1{
+  text-align: left;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ffffffce;
+}
+
+.info-noa p{
+  margin: 0;
+  font-size: 0.85rem;
+  color: #28a745;
+}
+
+
+.chat-mensajes{
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  max-height: 250px;
+  overflow-y: scroll;
+  height: 30%;
+  padding: 20px;
+  gap: 15px;
+  background-color: whitesmoke;
+}
+
+.fila-noa{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.fila-usuario{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.burbuja{
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.fila-noa .burbuja{
+  background-color: #235f2f;
+  font-family: 'Trebuchet MS';
+  color: white;
+  border-bottom-left-radius: 4px
+}
+
+.fila-usuario .burbuja{
+  background-color: #386641;
+  font-family: 'Trebuchet MS';
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-controles{
+  padding: 15px;
+  /* background-color: #14301a; */
+  background: linear-gradient(135deg, #14301a 0%, #3e734a 100%);
+}
+
+.opciones-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-opcion{
+  padding: 10px 15px;
+  background-color: #EBF5DF;
+  border: 1px solid #A7C957;
+  border-radius: 20px;
+  /* color: #495057; */
+  color: rgb(37, 36, 36);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-opcion:hover{
+  background-color: #14301a;
+  border: 1px solid white;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.typing{
+  font-style: italic;
+  color: #6c757d;
+}

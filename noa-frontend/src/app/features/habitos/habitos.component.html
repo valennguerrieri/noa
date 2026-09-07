@@ -1,0 +1,28 @@
+<app-background>
+    <div class="features-wrapper"> 
+        <div class="features-contenedor">
+
+            <div class="zona_1">
+                <h1 class="titulo">HÁBITOS</h1>
+            </div>
+            
+            <div class="zona_2">
+                <app-list-habitos></app-list-habitos>
+            </div>
+            
+            <div class="zona_3" (click)="modalHabito.abrirFormulario()">
+                <h1> + </h1>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div *ngIf="modalHabito.mostrarFormulario" class="modal-cobertura" (click)="modalHabito.cerrarFormulario()">
+        
+        <div class="modal-contenido">
+            <app-add-habitos (cerrar)="modalHabito.cerrarFormulario()"></app-add-habitos>
+        </div>
+
+    </div>
+</app-background>

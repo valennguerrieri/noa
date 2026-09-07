@@ -1,0 +1,107 @@
+@import "../../../../../styles/buttons.css";
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;  
+    padding: 0 50px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    z-index: 10;
+    
+    overflow-y: scroll;
+    /* padding-bottom: 10px; */
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.contenedor::-webkit-scrollbar {
+  display: none; /* Oculta la barra de scroll */
+}
+
+.notas-info{
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: fit-content;
+    padding: 25px;
+}
+
+.zona_titulo{
+    z-index: 10;
+}
+
+.titulo{
+    color: white;
+    font-family: 'Trebuchet MS';
+    letter-spacing: 3px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.n-fecha{
+    display: flex;
+    justify-content: end;
+    margin: -15px 0px;
+}
+
+.n-fecha p{
+    font-family: 'Century Gothic';
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.n-titulo h1{
+    font-family: 'Copperplate Gothic';
+    font-size: 1.5rem;
+    text-decoration: overline;
+    letter-spacing: 1px;
+    word-break: break-word;
+}
+
+.n-descripcion{
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+}
+
+.n-descripcion p{
+    font-family: 'Trebuchet MS';
+    letter-spacing: 1px;
+    word-break: break-word;
+}
+
+img{
+    height: 40px;
+    margin-right: 15px;
+}
+
+.modal-cobertura {
+    position: fixed; /*Se posiciona sobre TODA la ventana*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /*Para el fondo*/
+    backdrop-filter: blur(5px);           
+    
+    /*Posición del form*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000; 
+}

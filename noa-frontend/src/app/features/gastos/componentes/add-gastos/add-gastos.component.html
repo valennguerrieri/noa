@@ -1,0 +1,137 @@
+@if (pasoActual === 'seleccion') {
+
+    <div class="selec-container">
+        <h1 class="titulo">¿Qué te gustaría agregar?</h1>
+        <div class="item-container">
+            <div class="item" (click)="elegirTipo('ingreso', $event)">
+                <img src="assets/ingreso.png" alt="ingreso">
+                <p>Ingreso</p>
+            </div>
+
+            <div class="item" (click)="elegirTipo('gasto', $event)">
+                <img src="assets/gasto.png" alt="gasto">
+                <p>Gasto</p>
+            </div>
+        </div>
+        
+    </div>
+
+}
+
+@if (pasoActual === 'formulario') {
+
+    <div class="form-container" (click)="$event.stopPropagation()">
+        @if (tipoSeleccionado === 'gasto') {
+            <h1 class="titulo">NUEVO GASTO</h1>
+        }@else {
+            <h1 class="titulo">NUEVO INGRESO</h1>
+        }
+        
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="form-grid">
+                <div class="form-etiqueta">
+                    <div class="form-tit">
+                        <img src="assets/agenda.png" alt="ag">
+                        <label for="fecha">Fecha</label>
+                    </div>
+
+                    <div class="form-input">
+                        <input type="date" id="fecha" formControlName="fecha"> 
+                    </div>
+
+                    <div class="form-error">
+                        @if(form.controls['fecha'].getError('required') && form.controls['fecha'].touched){
+                            <span>La fecha es obligatoria..</span>
+                        }
+                    </div>
+                </div> 
+
+
+                <div class="form-etiqueta">
+                    <div class="form-tit">
+                        <img src="assets/etiqueta.png" alt="cat">
+                        <label for="cat">Categoría</label>
+                    </div>
+
+                    <div class="form-input">
+                        <select id="categoria" formControlName="categoria">
+                            @for (cat of categoriasMostradas; track cat) {
+                                <option [value]="cat">{{ cat }}</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-error">
+                        @if(form.controls['categoria'].getError('required') && form.controls['categoria'].touched){
+                            <span>Debe elegir una categoría..</span>
+                        }
+                    </div>
+                </div> 
+
+                
+                @if (tipoSeleccionado === 'gasto') {
+
+                    <div class="form-etiqueta">
+                        <div class="form-tit">
+                            <img src="assets/descrip.png" alt="descrip">
+                            <label for="concepto">Concepto</label>
+                        </div>
+
+                        <div class="form-input">
+                            <input type="text" id="concepto" formControlName="concepto" [maxlength]="30" placeholder="¿Cuál fue el gasto?"> 
+                        </div>
+
+                        <div class="form-error">
+                            @if(form.controls['concepto'].getError('required') && form.controls['concepto'].touched){
+                                <span>Debe ingresar el concepto..</span>
+                            }
+                        </div>
+
+                    </div> 
+
+                }
+                
+
+                <div class="form-etiqueta">
+                    <div class="form-tit">
+                        <img src="assets/importe.png" alt="importe">
+                        <label for="importe">Importe</label>
+                    </div>
+
+                    <div class="form-input">
+                        <input type="number" id="importe" formControlName="importe" min="0" placeholder="0.00"> 
+                    </div>
+
+                    <div class="form-error">
+                        @if(form.controls['importe'].getError('required') && form.controls['importe'].touched){
+                            <span>Debe ingresar el importe..</span>
+                        }
+                        @if (form.controls['importe'].getError('min')) {
+                            <span>El importe debe ser mayor que 0..</span>
+                        }
+                        @if (form.controls['importe'].getError('max')) {
+                            <span>El importe es demasiado alto.</span>
+                        }
+                    </div>
+
+                    <div class="vista-previa" *ngIf="form.get('importe')?.value">
+                        ¿Es correcto?: 
+                        <span class="importe-lindo">
+                            {{ form.get('importe')?.value | currency:'ARS':'symbol-narrow':'1.0-2' }}
+                        </span>
+                    </div>
+
+                </div> 
+            </div>
+            
+            <div class="form-buttons">
+                <button type="submit"[disabled]="form.invalid" class="button-submit">Guardar</button>
+                <button type="button" class="button-cancel" (click)="onCancelar()">Cancelar</button>
+            </div>
+
+        </form>
+
+    </div>
+
+}

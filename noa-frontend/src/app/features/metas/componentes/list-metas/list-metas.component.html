@@ -1,0 +1,50 @@
+<div class="contenedor">
+
+    <h1>organizador</h1>
+    <hr class="linea-separadora">
+
+    <div class="sin-metas" *ngIf="metasService.metas().length === 0">
+        <div class="sm-frase">
+            <p>"La clave para lograr tus metas es la constancia y el esfuerzo." </p>
+        </div>
+        @if (filtro === 'Archivada') {
+            <p>Aún no tienes metas archivadas.</p>
+        }@else {
+            <p>Aún no tienes metas pendientes.</p>
+        }
+        
+    </div>
+
+    <div class="metas-list" *ngIf="metasService.metas().length > 0">
+
+        <div class="metas-card" *ngFor="let meta of metasService.metas(); let i = index" [routerLink]="['/features/metas/componentes/details-metas', meta.id]">
+
+            <div class="meta-izq">
+                <div class="m-id">
+                    <!-- <p>N° {{ meta.id }}</p> -->
+                    <p>N° {{ i + 1 }}</p>
+                </div>
+                
+                <div class="m-titulo">
+                    <p>{{ meta.titulo }}</p>
+                </div>
+            </div>
+            
+            <div class="meta-der">
+                <div class="m-fecha">
+                    <p>{{ meta.fechaEstipulada }}</p>
+                </div>
+
+                <input type="checkbox" class="m-check"
+                    [checked]="meta.completado === 1" 
+                    (click)="cambiarEstado($event, meta)" 
+                    *ngIf="filtro !== 'Archivada'">
+            </div>
+            
+        </div>
+
+    </div>
+
+    <button class="button-return" *ngIf="filtro === 'Archivada'" (click)="volverEvent.emit()">Volver</button>
+
+</div>

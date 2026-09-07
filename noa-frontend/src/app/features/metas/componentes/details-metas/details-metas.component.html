@@ -1,0 +1,53 @@
+<app-background>
+    <div class="wrapper">
+
+        <div class="zona_titulo">
+            <h1 class="titulo" [routerLink]="['/features/metas']">METAS</h1>
+        </div>
+
+        <div class="contenedor">
+            <div class="metas-info">
+                <div class="m-id">
+                    <h1>FICHA META</h1>
+                </div>
+                <hr class="linea-separadora">
+                
+                <div class="m-titulo">
+                    <img src="assets/titulo.png" alt="tit">
+                    <p>TÍTULO: {{ meta.titulo }}</p>
+                </div>
+                <hr class="linea-separadora">
+
+                <div class="m-fecha">
+                    <img src="assets/agenda.png" alt="ag">
+                    <p>FECHA ESTIPULADA: {{ meta.fechaEstipulada }}</p>
+                </div>
+                <hr class="linea-separadora">
+
+                <div class="m-tipo">
+                    <img src="assets/etiqueta.png" alt="et">
+                    <p>TIPO: {{ meta.tipo }}</p>
+                </div>
+                <hr class="linea-separadora">
+
+                <div class="button-contenedor">
+                    <button class="button-archivar" *ngIf="meta.completado === 1" (click)="archivarMeta(meta.id!)" [routerLink]="['/features/metas']">Archivar</button>
+                    <button class="button-desarchivar" *ngIf="meta.completado === 2" (click)="desarchivarMeta(meta.id!)">Desarchivar</button>
+
+                    <button class="button-update" (click)="modalMeta.abrirFormulario()">Modificar</button>
+                    <button class="button-delete" (click)="eliminarMeta(meta.id!)" [routerLink]="['/features/metas']">Eliminar</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="modalMeta.mostrarFormulario" class="modal-cobertura">
+        
+        <div class="modal-contenido">
+            <app-update-metas (cerrar)="modalMeta.cerrarFormulario()"></app-update-metas>
+        </div>
+
+    </div>
+</app-background>

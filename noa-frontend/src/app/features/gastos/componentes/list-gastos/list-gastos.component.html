@@ -1,0 +1,110 @@
+<div class="contenedor">
+    <div class="arriba">
+        <h1>control</h1>
+
+        <div class="buttons">
+            <button class="nav-button" (click)="cambiarMes(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <span class="titulo-mes">{{ fechaActual | date:'MMMM yyyy' }}</span>
+
+            <button class="nav-button" (click)="cambiarMes(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    
+    <hr class="linea-separadora">
+
+    <div class="sin-movimientos" *ngIf="movimientosFiltrados.length === 0">
+        <div class="sm-frase">
+            <p>"Ahorrar no es sólo guardar, sino saber gastar"</p>
+            </div>
+        <p>Aún no tienes movimientos registrados.</p>
+    </div>
+        
+
+    <div class="gastos-list" *ngIf="movimientosFiltrados.length > 0">
+        
+        @if (filtro !== 'todos') {
+            <div class="barra-total" [class.es-gasto]="filtro === 'gasto'" [class.es-ingreso]="filtro === 'ingreso'">
+                <h2>Total {{ filtro | lowercase }}:</h2>
+                <span class="monto-total">
+                    ${{ sumarMontos() | number:'1.0-0' }}
+                </span>
+            </div>
+        }
+
+        <div class="graficos-container">
+            
+            @if (filtro === 'todos' || filtro === 'gasto') {
+                <div class="card-grafico">
+                    <h3>Gastos</h3>
+                    <div class="canvas-wrapper">
+                        @if(chartDataGastos.datasets[0].data.length > 0) {
+                            <canvas baseChart
+                                [data]="chartDataGastos"
+                                [type]="'doughnut'"
+                                [options]="chartOptions">
+                            </canvas>
+                        } @else {
+                            <p class="sin-datos">No hay gastos registrados</p>
+                        }
+                    </div>
+                </div>
+            }
+            
+            @if (filtro === 'todos' || filtro === 'ingreso') {
+                <div class="card-grafico">
+                    <h3>Ingresos</h3>
+                    <div class="canvas-wrapper">
+                        @if(chartDataIngresos.datasets[0].data.length > 0) {
+                            <canvas baseChart
+                                [data]="chartDataIngresos"
+                                [type]="'doughnut'"
+                                [options]="chartOptions">
+                            </canvas>
+                        } @else {
+                            <p class="sin-datos">No hay ingresos registrados</p>
+                        }
+                    </div>
+                </div>
+            }
+            
+        </div>
+
+
+        <div class="gastos-card" *ngFor="let gasto of movimientosFiltrados" [routerLink]="['/features/gastos/componentes/details-gastos', gasto.id]">
+                <div class="izq">
+                    <div class="g-tipo">
+                        @if (gasto.tipo === 'gasto') {
+                            <img src="assets/gasto.png" alt="gasto">
+                        }@else {
+                            <img src="assets/ingreso.png" alt="ingreso">
+                        }
+                    </div>
+
+                    <div class="g-fecha">
+                        <p>{{ gasto.fecha | date: 'dd/MM/yyyy' }}</p>
+                    </div>
+                </div>
+
+                <div class="der">
+                    <div class="g-categoria">
+                        <p>{{ gasto.categoria }}</p>
+                    </div>
+
+                    <div class="g-importe">
+                        @if (gasto.tipo === 'gasto') {
+                            <p style="color: rgb(172, 2, 2);">${{ gasto.importe | number:'1.0-0' }}</p>
+                        }@else {
+                            <p style="color: green;">${{ gasto.importe | number:'1.0-0' }}</p>
+                        }
+                    </div>
+                </div>                
+        </div>
+
+    </div>
+
+</div>

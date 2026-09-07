@@ -1,0 +1,31 @@
+<div class="contenedor">
+    
+    @for (dia of dias; track $index) {
+        
+        <div class="fila-dia" [class.hoy]="dia.esHoy" (click)="diaClick.emit(dia)">
+            
+            <div class="col-nombre">
+                <p>{{ inicialDia[dia.fecha.getDay()] }} </p>
+            </div>
+
+            <div class="col-numero">
+                <p>{{ dia.numero }}</p> 
+            </div>
+
+            <div class="col-eventos">
+                @if (dia.eventos.length === 0) {
+                   <span class="texto-vacio"> </span>
+                }
+                
+                @for (evento of dia.eventos; track $index) {
+                    <div class="evento-chip" [style.background-color]="'var(--tipo-' + evento.tipo.toLowerCase()"
+                    [routerLink]="['/features/agenda/componentes/details-eventos', evento.id]">
+                        {{ evento.titulo }}
+                    </div>
+                }
+            </div>
+
+        </div>
+        <hr class="linea-separadora">
+    }
+</div>

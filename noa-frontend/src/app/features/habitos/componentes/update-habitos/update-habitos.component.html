@@ -1,0 +1,54 @@
+<div class="form-container">
+    <!-- <div class="lapiz-fondo">
+        <img src="assets/lapiz.png" alt="lapiz">
+    </div> -->
+
+    <h1 class="titulo">MODIFICAR HÁBITO</h1>
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+        <div class="form-grid">
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <label for="fecha">Mes elegido</label>
+                </div>
+
+                <div class="form-input">
+                    <input type="month" id="fecha" formControlName="fecha"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['descripcion'].getError('required') && form.controls['descripcion'].touched){
+                        <span>Debe ingresar la descripcion del hábito.</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <label for="descripcion">Descripción</label>
+                </div>
+
+                <div class="form-input">
+                    <input type="text" id="descripcion" formControlName="descripcion" maxlength="30" placeholder="Máximo 30 caracteres.."> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['descripcion'].getError('required') && form.controls['descripcion'].touched){
+                        <span>Debe ingresar la descripcion del hábito.</span>
+                    }
+                </div>
+
+            </div> 
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit"[disabled]="form.invalid" class="button-submit">Actualizar</button>
+            <button type="button" class="button-cancel" (click)="onCancelar()">Cancelar</button>
+        </div>
+        
+    </form>
+
+</div>

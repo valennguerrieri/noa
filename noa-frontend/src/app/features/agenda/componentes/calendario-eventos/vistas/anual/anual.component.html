@@ -1,0 +1,22 @@
+<div class="contenedor">
+    <div class="mes-card" *ngFor="let mes of meses" (click)="mesClick.emit(mes.numeroMes)">
+        
+        <h1 class="titulo-mes">{{ mes.nombre }}</h1>
+        
+        <div class="mini-contenedor cabecera">
+            <p>D</p><p>L</p><p>M</p><p>M</p><p>J</p><p>V</p><p>S</p>
+        </div>
+
+        <div class="mini-contenedor dias">
+            <div class="mini-dia" *ngFor="let dia of mes.dias"
+                 [class.vacio]="dia.numero === 0"
+                 [class.otro-mes]="!dia.esMesActual"
+                 [class.con-evento]="dia.eventos.length > 0"
+                 [class.hoy]="dia.esHoy">
+                
+                {{ dia.numero > 0 ? dia.numero : '' }}
+            </div>
+        </div>
+
+    </div>
+</div>

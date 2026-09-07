@@ -1,0 +1,153 @@
+.sin-notas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #c9d8ee;
+    padding: 5px;
+}
+
+.sin-notas p{
+    font-family:'Trebuchet MS';
+    font-size: 18px;
+}
+
+.notas-list{
+    display: grid;
+    /* grid-template-columns: repeat(2, auto); */
+    grid-template-columns: repeat(var(--num-columnas, 2), 1fr);
+
+    max-width: 900px; 
+    margin: 0 auto;
+    gap: 30px;
+    padding-bottom: 20px;
+
+    perspective: 1000px;
+}
+
+.notas-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    background-color: #c9d8ee;
+    /* box-shadow: 0 4px 8px rgb(255 255 255 / 7%); */
+
+    box-shadow: 0 10px 20px rgba(100, 120, 150, .2); /* Sombra más suave */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+
+    border-radius: 8px;
+    aspect-ratio: 1 / 1; /* Mantiene la proporción 1:1 (cuadrado) */
+    padding: 15px;
+    box-sizing: border-box; 
+    overflow: hidden; 
+    cursor: pointer;
+
+    position: relative;
+}
+
+.notas-card:hover{
+    transform: scale(1) translateZ(20px); /* Se "levanta" 20px */
+    box-shadow: 0 35px 70px rgba(80, 100, 130, .35);
+}
+
+.zona button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    background-color: #ff3b30;
+    border-radius: 50%;
+    border-style: none;
+
+    color: white;
+    font-weight: bold;
+    
+    cursor: pointer;
+    z-index: 10;
+}
+
+.zona button:hover {
+    transform: translateY(-2px); 
+    background-color: #a12822;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.n-fecha p{
+    font-family: 'Century Gothic';
+    letter-spacing: 1px;
+    padding-top: 5px;
+}
+
+.n-titulo h1{
+    font-family: 'Copperplate Gothic';
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 0px;
+
+    word-break: break-word; /* "Romper" la palabra */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Cuántas líneas permite */
+    -webkit-box-orient: vertical;  
+    overflow: hidden; 
+    text-overflow: ellipsis; /* "..." del final */
+}
+
+/* Tamaño según las notas mostradas */
+
+/* Para la fecha: */
+:host([style*="--num-columnas: 2"]) .n-fecha p{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+:host([style*="--num-columnas: 3"]) .n-fecha p{
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+:host([style*="--num-columnas: 4"]) .n-fecha p{
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+
+/* Para el título: */
+:host([style*="--num-columnas: 2"]) .n-titulo h1{
+    font-size: 1.8rem;
+}
+
+:host([style*="--num-columnas: 3"]) .n-titulo h1{
+    font-size: 1.3rem;
+}
+
+:host([style*="--num-columnas: 4"]) .n-titulo h1{
+    font-size: 1rem;
+}
+
+/* Para el delete */
+:host([style*="--num-columnas: 2"]) .zona button{
+    top: 10px;
+    left: 86%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+}
+
+:host([style*="--num-columnas: 3"]) .zona button{
+    top: 10px;
+    left: 82%;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+}
+
+:host([style*="--num-columnas: 4"]) .zona button{
+    top: 10px;
+    left: 80%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+}

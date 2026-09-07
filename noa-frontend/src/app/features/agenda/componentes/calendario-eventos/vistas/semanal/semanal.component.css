@@ -1,0 +1,83 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+}
+
+.fila-dia{
+    display: grid;
+    grid-template-columns: minmax(0, 70px) 80px minmax(0, 1fr);
+    /*3 columnas: 
+       - 100px para la inicial del día
+       - 50px para el nro
+       - 1fr (el resto) para los eventos 
+    */
+    align-items: center; 
+}
+
+.fila-dia.hoy{
+    background-color: rgba(0, 206, 203, 0.274);
+}
+
+.col-nombre, .col-numero{
+    text-align: center;
+    align-content: center;
+    font-weight: bold;
+    height: 100%;
+}
+
+.col-nombre{
+    background-color: #2c436d85;
+}
+
+.col-nombre p, .col-numero p{
+    color: #0d1421f1;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 17px;
+    padding: 5px 0;
+}
+
+.col-numero{
+    background-color: #2c436d52;
+}
+
+.col-eventos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    padding-left: 5px;
+}
+
+.evento-chip{
+    /* flex-shrink: 0; */
+    display: inline-block; 
+    vertical-align: middle;
+    text-align: center;
+    align-content: center;
+    /* background-color: #5757574d; */
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 12px;
+
+    white-space: nowrap; /* Todo en UNA sola línea */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 15ch;
+
+    color: black;
+    font-family:'Lucida Sans';
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.linea-separadora{
+    border: 0;   
+    height: 1px;           
+    background-color: #0d1421f1; 
+    width: 100%;           
+    opacity: 0.5;         
+    margin: 0px; 
+}
+

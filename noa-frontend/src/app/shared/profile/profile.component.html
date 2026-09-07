@@ -1,0 +1,32 @@
+<div class="overlay" 
+    [class.show]="visible" 
+    (click)="onCerrar()">
+</div>
+
+<div class="contenedor" [class.open]="visible">
+    
+    <div class="titulo">
+        <button class="btn-cerrar" (click)="onCerrar()">✕</button>
+        <h1>PERFIL</h1>
+    </div>
+
+    @if (usuario()) {
+        <div class="perfil-card">
+            <div class="avatar">
+                <img [src]="usuario().foto" alt="fotoPerfil" class="foto-perfil" referrerpolicy="no-referrer">
+            </div>
+        
+
+            <div class="info">
+                <h2>{{usuario().nombre}}</h2>
+                <p class="email">{{usuario().email}}</p>
+            </div>
+        </div>
+    }
+
+    <div class="opciones">
+        <ul>
+            <li (click)="onCerrar()" (click)="cerrarSesion()" class="salir">Salir</li>
+        </ul>
+    </div>
+</div>

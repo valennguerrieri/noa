@@ -1,0 +1,41 @@
+<app-background>
+    <div class="wrapper">
+
+        <div class="zona_titulo">
+            <h1 class="titulo" [routerLink]="['/features/notas']">NOTAS</h1>
+        </div>
+
+        <div class="contenedor">
+            <div class="notas-info" [style.backgroundColor]="nota.color || '#c9d8ee'">
+
+                <div class="n-fecha">
+                    <p>{{ nota.fecha }}</p>
+                </div>
+
+                <div class="n-titulo">
+                    <h1>{{ nota.titulo }}</h1>
+                </div>
+
+                <div class="n-descripcion">
+                    <img src="assets/descrip.png" alt="des">
+                    <p>{{ nota.descripcion }}</p>
+                </div>
+
+                <div class="button-contenedor">
+                    <button class="button-update" (click)="modalNota.abrirFormulario()">Modificar</button>
+                    <button class="button-delete" (click)="eliminarNota(nota.id!)" [routerLink]="['/features/notas']">Eliminar</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="modalNota.mostrarFormulario" class="modal-cobertura">
+        
+        <div class="modal-contenido">
+            <app-update-notas (cerrar)="modalNota.cerrarFormulario()"></app-update-notas>
+        </div>
+
+    </div>
+</app-background>

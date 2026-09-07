@@ -1,0 +1,239 @@
+@import "../../../../../styles/buttons.css";
+
+app-background{
+    --z-fondo: 50;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;  
+    padding: 0 50px;
+    box-sizing: border-box;
+
+    position: relative; 
+    z-index: 20; /* Se esconde atrás del header y footer*/
+    /* margin-top: -50px; */
+}
+
+.zona_titulo{
+    z-index: 10;
+}
+
+.titulo{
+    color: white;
+    font-family: 'Trebuchet MS';
+    letter-spacing: 3px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 0px 20px 25px 30px;
+    overflow-y: auto; */
+}
+
+.evento-info{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+    max-width: 420px;
+    z-index: 10;
+    border-radius: 20px;
+    zoom: 0.9;
+}
+
+.arriba{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #c9d8ee;
+    min-height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(226, 226, 226, 0.137);
+    position: relative;
+}
+
+.arriba p{
+    word-break: break-word; 
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    margin: 5px;
+}
+
+.img-fondo {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;  
+    height: 100%; 
+    z-index: 0;
+    pointer-events: none;    
+    overflow: hidden; 
+}
+
+.img-fondo img {
+    width: 80%;
+    max-width: 450px;
+    object-fit: contain;
+    transform: rotate(15deg); 
+    margin-right: 20px; 
+}
+
+.img-fondo img[alt="salud"]{
+    width: 65%;
+    opacity: 0.25;
+}
+
+.img-fondo img[alt="estudio"]{
+    padding-top: 25px;
+    width: 60%;
+    opacity: 0.10;
+}
+
+.img-fondo img[alt="trabajo"]{
+    padding-top: 55px;
+    width: 50%;
+    opacity: 0.30;
+}
+
+.img-fondo img[alt="personal"]{
+    width: 50%;
+    opacity: 0.23;
+}
+
+.img-fondo img[alt="otro"]{
+    padding-top: 25px;
+    transform: rotate(-25deg);
+    width: 55%;
+    opacity: 0.20;
+}
+
+.e-tipo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(226, 226, 226, 0.137);
+}
+
+.e-tipo p{
+    font-family: 'Trebuchet MS';
+    letter-spacing: 5px;
+    font-size: 1.5rem;
+}
+
+/* Color del texto según el tipo */
+.e-tipo p[data-tipo="estudio"]{
+    color: rgba(1, 51, 1, 0.952);
+}
+
+.e-tipo p[data-tipo="personal"]{
+    color: rgba(70, 63, 4, 0.89);
+}
+
+.e-tipo p[data-tipo="trabajo"]{
+    color: rgba(59, 1, 1, 0.925);
+}
+
+.e-tipo p[data-tipo="salud"]{
+    color: rgba(110, 102, 158, 0.89);
+}
+
+.e-tipo p[data-tipo="otro"]{
+    color: rgba(36, 33, 33, 0.973);
+}
+
+.e-titulo{
+    display: flex;
+    text-align: left;
+    padding: 25px ;
+    z-index: 1;
+}
+
+.e-titulo p{
+    font-family:'Trebuchet MS';
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.e-fecha{
+    /* font-family: 'Courier New'; */
+    font-family:Cambria;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-top: auto;
+    padding-bottom: 50px;
+    gap: 15px;
+    z-index: 1;
+}
+
+.e-lugar, .e-descripcion{
+    display: flex;
+    align-items: center;
+    font-family:'Trebuchet MS';
+    font-size: 1.1rem;
+    padding-left: 15px;
+}
+
+.e-lugar img, .e-descripcion img{
+    height: 40px;
+    padding-right: 10px;
+}
+
+.abajo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0d1421cc;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(226, 226, 226, 0.137);
+}
+
+.e-id{
+    font-family: 'Courier New';
+    color: #a3bbe7;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.button-contenedor{
+    margin: 0px;
+    padding: 10px 0;
+}
+
+.button-contenedor button{
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.479);
+}
+
+.modal-cobertura {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);           
+    z-index: 1000; 
+}
+

@@ -1,0 +1,227 @@
+@import "../../../../../styles/buttons.css";
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    background-color: #c9d8ee;
+    overflow: hidden; 
+}
+
+.contenedor h1{
+    font-family: 'Trebuchet MS';
+    letter-spacing: 4px;
+    font-size: 20px;
+    margin-left: 25px;
+    margin-bottom: 0px;
+}
+
+.arriba{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5vh;
+}
+
+.linea-separadora{
+    border: 0;   
+    height: 3px;           
+    background-color: #000; 
+    width: 93%;           
+    opacity: 1;          
+}
+
+.sin-habitos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+    padding-right: 10px;
+}
+
+.sin-habitos p{
+    font-family:'Trebuchet MS';
+    font-size: 18px;
+}
+
+.sh-frase{
+    text-align: center;
+    background-color: #a1bfec;
+    margin-right: 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.678);
+}
+
+.sh-frase p{
+    font-family:'Lucida Sans Unicode';
+    font-size: 15px;
+}
+
+.habitos-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.habitos-card{
+    display: flex;
+    justify-content: space-between;
+    background-color: #e2e8f0; 
+    border: 1.3px solid #0d1421;
+    box-shadow: 0 7px 10px rgba(0, 49, 95, 0.678);
+    border-radius: 10px;
+    margin: 20px 0;
+    gap: 5px;
+    min-width: 500px;
+}
+
+.habitos-card:hover{
+    transform: translateY(-5px); 
+}
+
+.habito-izq{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    padding-left: 25px;
+}
+
+.img-fondo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.img-fondo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.822);
+    border-radius: 10px;
+    max-width: fit-content;
+    padding: 10px 30px;
+}
+
+.h-id, .h-titulo{
+    position: relative;
+    word-break: break-word;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 20ch;
+}
+
+.h-titulo p{
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.7rem;
+    color: #000000;
+    margin: 3px;
+}
+
+.h-id p{
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    color: #000000;
+    margin: 0;
+}
+
+.habitos-der{
+    width: 200px;
+    border-radius: 10px;
+    border: 1.3px solid #0d1421;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.651); 
+    margin: 5px;
+}
+
+.semana, .calend-dias{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+    padding: 5px;
+}
+
+.semana{
+    background-color: rgb(206, 27, 27);
+    background: linear-gradient(135deg, #a53030f1 0%,rgb(206, 27, 27) 100%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 0px;
+}
+
+.calend-dias{
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.semana p{
+    font-family: 'Trebuchet MS';
+    font-size: 0.8rem;
+    color: #310303;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.celda-dia{
+    font-size: 0.75rem;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0d142150;
+    background-color: #e7e5e5;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.celda-dia:hover{
+    background-color: #979696;
+}
+
+.celda-dia.externo{
+    background-color: #1a1a1a;
+    color: transparent;
+    pointer-events: none;
+    border: 1px solid #222;
+}
+
+/* Estados del hábito: 'completado', 'fallido' o 'vacio'(queda como antes)*/
+
+.celda-dia.completado{
+    background-color: #006625;
+    color: white;
+    font-weight: bold;
+}
+
+.celda-dia.fallido{
+    background-color: #d32424;
+    color: white;
+    font-weight: bold;
+}
+
+.celda-dia.hoy{
+    border: 2px solid #0067dd;
+    font-weight: bold;
+    transform: scale(1.1);
+}

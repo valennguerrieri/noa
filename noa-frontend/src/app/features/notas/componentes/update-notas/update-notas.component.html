@@ -1,0 +1,71 @@
+<div class="form-container">
+    <!-- <div class="lapiz-fondo">
+        <img src="assets/lapiz.png" alt="lapiz">
+    </div> -->
+
+    <h1 class="titulo">MODIFICAR NOTA</h1>
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+        <div class="form-grid">
+            <div class="form-etiqueta">
+                
+                <label for="fecha">Fecha</label>
+                <div class="form-input">
+                    <input type="text" id="fecha" formControlName="fecha" readonly> 
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                
+                <label for="titulo">Título</label>
+                <div class="form-input">
+                    <input type="text" id="titulo" formControlName="titulo"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['titulo'].getError('required') && form.controls['titulo'].touched){
+                        <span>Debe ingresar el título de la nota.</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+
+                <label for="descripcion">Descripción</label>
+                <div class="form-input">
+                    <textarea id="descripcion" formControlName="descripcion"></textarea>
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['descripcion'].getError('required') && form.controls['descripcion'].touched){
+                        <span>Debe ingresar la descripción de la nota.</span>
+                    }
+                </div>
+
+            </div>
+
+            <div class="form-etiqueta">
+
+                <label for="color">Color</label>
+                <div class="color-selector">
+                    <label class="color-option" *ngFor="let color of coloresPaleta" [style.backgroundColor]="color">
+                        <input type="radio" formControlName="color" [value]="color">
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit"[disabled]="form.invalid" class="button-submit">Actualizar</button>
+            <button type="button" class="button-cancel" (click)="onCancelar()">Cancelar</button>
+        </div>
+
+     </form>
+
+</div>

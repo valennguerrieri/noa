@@ -1,0 +1,68 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columnas por fila */
+    gap: 20px;
+    padding: 10px;
+}
+
+.mes-card{
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.mes-card:hover{ 
+    transform: scale(1.03); 
+    background-color: #a3a2a2; 
+}
+
+.titulo-mes{ 
+    margin-bottom: 8px; 
+    margin-left: 5px; 
+    color: #0d1421; 
+    font-family:'Trebuchet MS';
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.mini-contenedor{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 12px;
+    row-gap: 2px;
+}
+
+.mini-contenedor.cabecera{ 
+    color: #0d1421d3; 
+    margin-bottom: 4px; 
+    font-weight: bold; 
+}
+
+.mini-dia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    margin: 0 auto;
+    border-radius: 50%;
+
+    color: #0d1421e0;
+    font-size: 13px;
+}
+
+.mini-dia.otro-mes{
+    color: #6b6969; 
+}
+
+.mini-dia.hoy{ 
+    background-color: #013983;
+    color: white;
+    font-weight: bold;
+}
+
+.mini-dia.con-evento{ 
+    color: #fc0695; 
+    font-weight: bold; 
+}

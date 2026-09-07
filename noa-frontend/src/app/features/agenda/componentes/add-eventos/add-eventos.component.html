@@ -1,0 +1,91 @@
+<div class="form-container" (click)="$event.stopPropagation()">
+    <h1 class="titulo">NUEVO EVENTO</h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-grid">
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <img src="assets/etiqueta.png" alt="tipo">
+                    <label for="tipo">Tipo</label>
+                </div>
+                
+                <div class="form-input">
+                    <select formControlName="tipo">
+                        <option *ngFor="let tipo of tiposEvento" [value]="tipo">{{ tipo }}</option>
+                    </select>
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['tipo'].getError('required') && form.controls['tipo'].touched){
+                        <span>Debe elegir un tipo de evento.</span>
+                    }
+                </div>
+
+            </div> 
+
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <img src="assets/titulo.png" alt="tit">
+                    <label for="titulo">Título</label>
+                </div>
+                
+                <div class="form-input">
+                    <input type="text" id="titulo" formControlName="titulo" maxlength="50" placeholder="¿Qué vas a hacer?"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['titulo'].getError('required') && form.controls['titulo'].touched){
+                        <span>Debe ingresar el título del evento.</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <img src="assets/agenda.png" alt="ag">
+                    <label for="fecha">Fecha</label>
+                </div>
+                
+                <div class="form-input">
+                    <input type="datetime-local" id="fecha" formControlName="fecha" [min]="fechaMinima"> 
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <img src="assets/ubi.png" alt="ubi">
+                    <label for="lugar">Lugar</label>
+                </div>
+
+                <div class="form-input">
+                    <input type="text" id="lugar" formControlName="lugar" maxlength="30" placeholder="¿Dónde es?"> 
+                </div>
+            </div> 
+
+            
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <img src="assets/descrip.png" alt="des">
+                    <label for="descripcion">Descripción</label>
+                </div>
+                
+                <div class="form-input">
+                    <input type="text" id="descripcion" formControlName="descripcion" maxlength="50" placeholder="Opcional.."> 
+                </div>
+            </div> 
+        </div>
+        
+        <div class="form-buttons">
+            <button type="submit"[disabled]="form.invalid" class="button-submit">Guardar</button>
+            <button type="button" class="button-cancel" (click)="onCancelar()">Cancelar</button>
+        </div>
+        
+        
+    </form>
+
+</div>

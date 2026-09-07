@@ -1,0 +1,64 @@
+@import "../../../styles/menu.css";
+
+.overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    
+    /* Estado inicial: invisible */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.contenedor{
+    position: fixed; 
+    top: 0;
+    right: 0;
+    height: 100vh; /* Ocupa todo el alto */
+    width: 280px; 
+    background-color: #0d1421; /* Color de fondo (ajusta a tu gusto) */
+    color: white;
+    z-index: 1001; 
+    padding: 20px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+
+    transform: translateX(100%); 
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.perfil-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* gap: 5px; */
+    margin-top: 20px;
+}
+
+.foto-perfil {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+.info h2{
+    font-size: 1.5rem;
+    font-family: "Trebuchet MS";
+    margin-bottom: 5px;
+    color: white;
+}
+
+.info .email{
+    font-size: 0.9rem;
+    font-family: "Trebuchet MS";
+    margin: 0;
+    color: gray;
+}

@@ -1,0 +1,58 @@
+<app-background></app-background>
+
+<div class="wrapper">
+
+    <div class="zona_titulo">
+        <h1 class="titulo" [routerLink]="['/features/gastos']">GASTOS</h1>
+    </div>
+
+    <div class="contenedor">
+        <div class="movimiento-info">
+            <div class="img-fondo">
+                <img src="assets/billetes.png" alt="fon-mov">
+            </div>
+
+            <div class="m-tipo">
+                <h1>Detalle {{movimiento.tipo}}</h1>
+            </div>
+            <hr class="linea-separadora">
+            
+            <div class="m-importe">
+                <p>${{ movimiento.importe | number:'1.0-0' }}</p>
+            </div>
+
+            <div class="m-categoria">
+                <p>{{ movimiento.categoria }}</p>
+            </div>
+            
+            @if (movimiento.concepto.length > 0) {
+                <div class="m-concepto">
+                    <img src="assets/descrip.png" alt="descrip">
+                    <p>Concepto: {{ movimiento.concepto }}</p>
+                </div>
+            }
+            
+            <div class="m-fecha">
+                <img src="assets/agenda.png" alt="ag">
+                <p>Fecha: {{ movimiento.fecha | date: 'dd/MM/yyyy' }}</p>
+            </div>
+
+            <hr class="linea-separadora">
+
+            <div class="button-contenedor">
+                <button class="button-update" (click)="modalMovimiento.abrirFormulario()">Modificar</button>
+                <button class="button-delete" (click)="eliminarMovimiento(movimiento.id!)" [routerLink]="['/features/gastos']">Eliminar</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="modalMovimiento.mostrarFormulario" class="modal-cobertura">
+    
+    <div class="modal-contenido">
+        <app-update-gastos (cerrar)="modalMovimiento.cerrarFormulario()"></app-update-gastos>
+    </div>
+
+</div>

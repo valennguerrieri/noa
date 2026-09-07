@@ -1,0 +1,57 @@
+@import "../../../../../../../styles/modal.css";
+
+.cuad-dias{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 5px 0;
+}
+
+.celda-dia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 30%;
+}
+
+.celda-dia:hover{
+    background-color: #f0f0f0;
+}
+
+.celda-dia p{
+    font-family: 'Courier New';
+    font-size: 17px;
+}
+
+.otro-mes{
+    color: #6b6969; 
+}
+
+.hoy{
+    background-color: #0d1421d3;
+    color: #c4e6ff;
+    font-weight: bold;
+}
+
+.hoy:hover{
+    background-color: #0d1421;
+}
+
+.fa-circle{
+    color: #ce0000; 
+    font-size: 0.5rem; 
+    margin-top: -10px;
+}
+
+.e-fecha p{
+    font-weight: bold;
+    font-size: 1.8rem; 
+}
+
+.e-titulo p{
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}

@@ -1,0 +1,61 @@
+<app-background>
+    <div class="wrapper">
+        <div class="zona_titulo">
+            <h1 class="titulo" [routerLink]="['/features/habitos']">HÁBITOS</h1>
+        </div>
+
+        <div class="contenedor" *ngIf="habito">
+            <div class="habitos-info">
+                <div class="arriba">
+                    <div class="h-descripcion">
+                        <h1>RESUMEN "{{ habito.descripcion }}"</h1>
+                    </div>
+                </div>
+
+                <hr class="linea-separadora">
+
+                <div class="abajo">
+                    <div class="izq">
+                        <div class="porcentajes">
+                            <span class="porc-cumplido">{{ porcentajeCompletado }}%</span>
+                            <span class="porc-fallido">{{ porcentajeFallido  }}%</span>
+                        </div>
+
+                        <div class="resumen">
+                            <p>Cumpliste <span class="text-verde">{{ chartData.datasets[0].data[0] }}</span> días.</p>
+                        </div>
+
+                        <div class="button-contenedor">
+                            <button class="button-update" (click)="modalHabito.abrirFormulario()">Modificar</button>
+                            <button class="button-delete" (click)="eliminarHabito(habito.id!)" [routerLink]="['/features/habitos']">Eliminar</button>
+                        </div>
+                    </div>
+
+                    <div class="der">
+                        <div class="card-stats">
+                            <div class="grafico-wrapper">
+                                <canvas baseChart
+                                        [data]="chartData"
+                                        [options]="chartOptions"
+                                        [type]="'doughnut'">
+                                </canvas>
+                            </div>    
+                        </div>
+                    </div>
+
+                </div>
+                    
+            </div>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="modalHabito.mostrarFormulario" class="modal-cobertura">
+        
+        <div class="modal-contenido">
+            <app-update-habitos (cerrar)="modalHabito.cerrarFormulario()"></app-update-habitos>
+        </div>
+
+    </div>
+</app-background>

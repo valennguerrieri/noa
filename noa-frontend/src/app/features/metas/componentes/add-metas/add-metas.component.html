@@ -1,0 +1,69 @@
+<div class="form-container" (click)="$event.stopPropagation()">
+    <h1 class="titulo">NUEVA META</h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-grid">
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <img src="assets/etiqueta.png" alt="tipo">
+                    <label for="titulo">Tipo</label>
+                </div>
+
+                <div class="form-input">
+
+                    <select formControlName="tipo">
+                        <!-- <option value="" selected="selected">Selecciona un tipo</option> -->
+                        <option *ngFor="let tipo of tiposMeta" [value]="tipo">{{ tipo }}</option>
+                    </select>
+
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['tipo'].getError('required') && form.controls['tipo'].touched){
+                        <span>Debe ingresar el tipo de la meta.</span>
+                    }
+                </div>
+
+            </div> 
+
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <img src="assets/titulo.png" alt="tit">
+                    <label for="titulo">Título</label>
+                </div>
+
+                <div class="form-input">
+                    <input type="text" id="titulo" formControlName="titulo" maxlength="50"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['titulo'].getError('required') && form.controls['titulo'].touched){
+                        <span>Debe ingresar el título de la meta.</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <img src="assets/agenda.png" alt="ag">
+                    <label for="fecha">Fecha estipulada</label>
+                </div>
+
+                <div class="form-input">
+                    <input type="date" id="fechaEstipulada" formControlName="fechaEstipulada" [min]="fechaMinima"> 
+                </div>
+
+            </div> 
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit"[disabled]="form.invalid" class="button-submit">Guardar</button>
+            <button type="button" class="button-cancel" (click)="onCancelar()">Cancelar</button>
+        </div>
+        
+    </form>
+
+</div>

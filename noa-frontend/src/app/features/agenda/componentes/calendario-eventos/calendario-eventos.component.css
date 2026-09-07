@@ -1,0 +1,126 @@
+.wrapper{
+    zoom: 0.7;
+}
+
+.calendario-contenedor{
+    background-color: #c3c5c7;
+}
+
+.header, .footer{
+    background: linear-gradient(135deg, #0d1421f1 0%, rgb(48, 74, 119) 100%);
+    color: rgb(0, 0, 0);
+    padding: 1.5rem;
+    text-align: center;
+    /* position: relative; */
+    overflow: hidden
+}
+
+.header h2{
+    font-family:'Font Awesome 6 Free';
+    letter-spacing: 3px;
+    color: rgb(204, 204, 248);
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover{
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.semana{
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 0;
+    background-color: #2c436d85;
+}
+
+.semana.Mensual{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales */
+}
+
+.semana p{
+    color: #0d1421f1;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+}
+
+
+
+
+/* .seleccionado {
+    background-color: #4a6bdf; Tu color primario
+    color: white;
+} */
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.button-hoy{
+    font-family:'Font Awesome 6 Free';
+    letter-spacing: 3px;
+    color: rgb(204, 204, 248);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 24px; 
+    border-radius: 20px;
+    font-size: 14px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.button-hoy:hover{
+    background: rgba(255, 255, 255, 0.363);
+    color: rgb(42, 42, 51);
+    font-weight: bold;
+}
+
+.event-indicador{
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 24px; 
+    border-radius: 20px;
+    gap: 10px;
+}
+
+.event-indicador i{
+    padding-top: 12px;
+}
+
+.event-indicador span{
+    font-family:'Lucida Sans';
+    color: #c4e6ff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.fa-circle{
+    color: #ce0000; 
+    font-size: 0.5rem; 
+    margin-top: -10px;
+}

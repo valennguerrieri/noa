@@ -1,0 +1,67 @@
+<div class="form-container">
+    <!-- <div class="lapiz-fondo">
+        <img src="assets/lapiz.png" alt="lapiz">
+    </div> -->
+
+    <h1 class="titulo">MODIFICAR META</h1>
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+        <div class="form-grid">
+            <div class="form-etiqueta">
+                
+                <label for="tipo">Tipo</label>
+                <div class="form-input">
+                    <input type="text" id="tipo" formControlName="tipo"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['tipo'].getError('required') && form.controls['tipo'].touched){
+                        <span>Debe ingresar el tipo de la meta.</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                
+                <label for="titulo">Título</label>
+                <div class="form-input">
+                    <input type="text" id="titulo" formControlName="titulo" maxlength="50"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['titulo'].getError('required') && form.controls['titulo'].touched){
+                        <span>Debe ingresar el título de la meta.</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                
+                <label for="fechaEstipulada">Fecha estipulada</label>
+                <div class="form-input">
+                    <input type="date" id="fechaEstipulada" formControlName="fechaEstipulada" [min]="fechaMinima"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['fechaEstipulada'].getError('required') && form.controls['fechaEstipulada'].touched){
+                        <span>Debe ingresar la fecha de la meta.</span>
+                    }
+                </div>
+
+            </div> 
+
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit"[disabled]="form.invalid" class="button-submit">Actualizar</button>
+            <button type="button" class="button-cancel" (click)="onCancelar()">Cancelar</button>
+        </div>
+
+     </form>
+
+</div>

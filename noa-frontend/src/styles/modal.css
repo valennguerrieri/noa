@@ -1,0 +1,96 @@
+.modal-cobertura{
+    position: fixed; /*Se posiciona sobre TODA la ventana*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /*Para el fondo*/
+    backdrop-filter: blur(5px);           
+    
+    /*Posición del form*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000; 
+}
+
+.modal-vista{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #0d1421cb;
+    min-width: 70vh;
+    min-height: 50vh;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-vista h1{
+    color: #fffefe;
+    font-family: 'Font Awesome 6 Free';
+    letter-spacing: 4px;
+    font-size: 1.8rem;
+    padding-right: 20px;
+}
+
+.button-close{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+.button-close:hover{
+    color: #5f5e5e;
+}
+
+.entidad-eventos{
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.entidad-card{
+    display: flex;
+    align-items: center;
+    justify-content: start; 
+    gap: 30px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.entidad-card:hover {
+    transform: translateY(-2px); /* Efecto de "levantarse" */
+    filter: brightness(1.1); /* Se ilumina un poco */
+}
+
+.entidad-card p{
+    font-family: 'Trebuchet MS';  
+    color: white;  
+    margin: 15px;
+    word-break: break-word; /*"Romper" la palabra*/
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Cuántas líneas permite */
+    -webkit-box-orient: vertical;  
+    overflow: hidden; 
+    text-overflow: ellipsis; /*"..." del final*/
+    max-width: 20ch;
+}
+
+.entidad-sin-elem{
+    font-family:'Trebuchet MS';
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: white;
+}

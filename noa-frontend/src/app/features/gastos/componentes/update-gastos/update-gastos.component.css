@@ -1,0 +1,17 @@
+@import "../../../../../styles/forms.css";
+
+.vista-previa{
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: 8px;
+    margin-left: 5px;
+    font-style: italic;
+}
+
+.importe-lindo{
+    color: #4caf50;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 1.1rem;
+    margin-left: 5px;
+}

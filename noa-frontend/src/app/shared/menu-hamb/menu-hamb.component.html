@@ -1,0 +1,32 @@
+<div class="overlay" 
+    [class.show]="visible" 
+    (click)="onCerrar()">
+</div>
+
+<div class="contenedor" [class.open]="visible">
+    
+    <div class="titulo">
+        <h1>MENÚ</h1>
+        <button class="btn-cerrar" (click)="onCerrar()">✕</button>
+    </div>
+
+    <div class="opciones">
+        <ul>
+            <li (click)="onCerrar()" (click)="modalEvento.abrirFormulario()">Agregar evento</li>
+            <li (click)="onCerrar()" [routerLink]="['/features/agenda']">Consultar agenda</li>
+            <li (click)="onCerrar()" [routerLink]="['/features/notas']">Notas</li>
+            <li (click)="onCerrar()" [routerLink]="['/features/habitos']">Tracker de hábitos</li>
+            <li (click)="onCerrar()" [routerLink]="['/features/metas']">Organizador de metas</li>
+            <li (click)="onCerrar()" [routerLink]="['/features/gastos']">Control de gastos</li>
+            <li (click)="onCerrar()" (click)="cerrarSesion()" class="salir">Salir</li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="modalEvento.mostrarFormulario" class="modal-cobertura">
+    
+    <div class="modal-contenido">
+        <app-add-eventos (cerrar)="modalEvento.cerrarFormulario()"></app-add-eventos>
+    </div>
+
+</div>

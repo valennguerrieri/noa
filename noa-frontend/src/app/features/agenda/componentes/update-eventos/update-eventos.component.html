@@ -1,0 +1,81 @@
+<div class="form-container">
+    <!-- <div class="lapiz-fondo">
+        <img src="assets/lapiz.png" alt="lapiz">
+    </div> -->
+
+    <h1 class="titulo">MODIFICAR EVENTO</h1>
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+        <div class="form-grid">
+            <div class="form-etiqueta">
+                
+                <label for="tipo">Tipo</label>
+                <div class="form-input">
+                    <select formControlName="tipo">
+                        <option *ngFor="let tipo of tiposEvento" [value]="tipo">{{ tipo }}</option>
+                    </select>
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                    
+                <label for="titulo">Título</label>
+                <div class="form-input">
+                    <input type="text" id="titulo" formControlName="titulo" maxlength="50"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['titulo'].getError('required') && form.controls['titulo'].touched){
+                        <span>Debe ingresar el título del evento.</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                    
+                <label for="fechaEstipulada">Fecha</label>
+                <div class="form-input">
+                    <input type="datetime-local" id="fecha" formControlName="fecha"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['fecha'].getError('required') && form.controls['fecha'].touched){
+                        <span>Debe ingresar la fecha del evento.</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                    
+                <label for="titulo">Lugar</label>
+                <div class="form-input">
+                    <input type="text" id="lugar" formControlName="lugar" maxlength="30" placeholder="¿Dónde es?"> 
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                    
+                <label for="titulo">Descripción</label>
+                <div class="form-input">
+                    <input type="text" id="descripcion" formControlName="descripcion" maxlength="50" placeholder="Opcional.."> 
+                </div>
+
+            </div> 
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit"[disabled]="form.invalid" class="button-submit">Actualizar</button>
+            <button type="button" class="button-cancel" (click)="onCancelar()">Cancelar</button>
+        </div>
+
+    </form>
+
+</div>

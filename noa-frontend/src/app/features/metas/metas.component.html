@@ -1,0 +1,45 @@
+<app-background>
+    <div class="features-wrapper"> 
+        <div class="features-contenedor">
+
+            <div class="zona_1">
+                <h1 class="titulo">METAS</h1>
+
+                <div class="derecha">
+                    <div class="item" *ngIf="filtroSeleccionado === 'Todos'" (click)="verArchivados()">
+                        <img src="assets/archivo.png" alt="archivo">
+                    </div>
+
+                    <div class="filtro">
+                        <select class="filtro-select" [value]="filtroSeleccionado" (change)="filtroTipos($event)">
+                            <option value="Todos">Todos</option>
+                            <option value="Estudio">Estudio</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Trabajo">Trabajo</option>
+                            <option value="Otro..">Otro..</option>
+                            <option value="Archivada" hidden>Archivado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="zona_2">
+                <app-list-metas [tipoFiltro]="filtroSeleccionado" (volverEvent)="volverAlInicio()"></app-list-metas>
+            </div>
+            
+            <div class="zona_3" (click)="modalMeta.abrirFormulario()">
+                <h1> + </h1>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div *ngIf="modalMeta.mostrarFormulario" class="modal-cobertura" (click)="modalMeta.cerrarFormulario()">
+        
+        <div class="modal-contenido">
+            <app-add-metas (cerrar)="modalMeta.cerrarFormulario()"></app-add-metas>
+        </div>
+
+    </div>
+</app-background>

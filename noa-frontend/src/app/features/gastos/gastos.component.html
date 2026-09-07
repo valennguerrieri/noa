@@ -1,0 +1,38 @@
+<app-background>
+    <div class="features-wrapper"> 
+        <div class="features-contenedor">
+
+            <div class="zona_1">
+                <h1 class="titulo">GASTOS</h1>
+
+                <div class="derecha">
+                    <div class="filtro">
+                        <select class="filtro-select" [value]="filtroSeleccionado" (change)="filtroTipos($event)">
+                            <option value="todos">Todos</option>
+                            <option value="gasto">Gastos</option>
+                            <option value="ingreso">Ingresos</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="zona_2">
+                <app-list-gastos [tipoFiltro]="filtroSeleccionado"></app-list-gastos>
+            </div>
+            
+            <div class="zona_3" (click)="modalGasto.abrirFormulario()">
+                <h1> + </h1>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div *ngIf="modalGasto.mostrarFormulario" class="modal-cobertura" (click)="modalGasto.cerrarFormulario()">
+        
+        <div class="modal-contenido">
+            <app-add-gastos (cerrar)="modalGasto.cerrarFormulario()"></app-add-gastos>
+        </div>
+
+    </div>
+</app-background>

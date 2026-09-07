@@ -1,0 +1,70 @@
+<div class="wrapper">
+    <div class="calendario-contenedor">
+
+        <div class="header">
+            <div class="buttons">
+                <button class="nav-button" (click)="cambiarMes(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                @if (vistaSeleccionada !== 'Anual') {
+                    <h2>{{ fechaActual | date: 'MMMM yyyy' }}</h2>
+                }@else {
+                    <h2>{{ fechaActual | date: 'yyyy' }}</h2>
+                }
+
+                <button class="nav-button" (click)="cambiarMes(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        @if (vistaSeleccionada === 'Mensual') {
+            <div class="semana" [class]="vistaSeleccionada">
+                <p>D</p>
+                <p>L</p>
+                <p>M</p>
+                <p>M</p>
+                <p>J</p>
+                <p>V</p>
+                <p>S</p>
+            </div>
+        }
+        
+        <div class="vista-calendario">
+            @switch (vistaSeleccionada) {
+                @case ('Mensual') {
+                    <app-mensual [dias]="dias" (diaClick)="seleccionarDia($event)"></app-mensual>
+                }
+
+                @case ('Semanal') {
+                    <app-semanal [dias]="dias" (diaClick)="seleccionarDia($event)"></app-semanal>
+                }
+
+                @case ('Anual') {
+                    <app-anual [meses]="mesesAnio" (mesClick)="irAMes($event)"></app-anual>
+                }
+
+                @default {
+                    <p>Error, vista no reconocida.</p>
+                }
+            }
+        </div>
+
+
+        <div class="footer">
+            @if (vistaSeleccionada !== 'Anual') {
+                <button class="button-hoy" (click)="irAHoy()">Ir a HOY</button>
+            }
+            
+            @if (vistaSeleccionada === 'Mensual'){
+                <div class="event-indicador">
+                    <i class="fas fa-circle"></i>
+                    <span>Tiene eventos</span>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,100 @@
+@import "modal.css";
+
+.features-wrapper {
+    display: flex;
+    height: 100%;  
+    padding: 0 50px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.features-contenedor{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 10;
+}
+
+.zona_1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo{
+    color: white;
+    font-family: 'Trebuchet MS';
+    letter-spacing: 3px;
+}
+
+.filtro{
+    display: inline-flex;
+    align-items: center;
+    background-color: #1e4d8a;
+    border-radius: 7px;
+    padding: 4px 15px;
+    gap: 10px;
+}
+
+.filtro-select{
+    background-color: #1e4d8a;
+    border-style: none;
+    padding: 5px;
+    color: white;
+    font-size: 17px;
+    font-family: 'Trebuchet MS';
+    cursor: pointer;
+}
+
+/*  ZONA 2 SUMARLE ESTILO SEGÚN LA ENTIDAD */
+.zona_2{
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.zona_2::-webkit-scrollbar {
+  display: none; /* Oculta la barra de scroll */
+}
+
+.derecha{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.item{
+    display: flex;
+    justify-content: center;
+    background-color: #1e4d8a;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px rgba(241, 237, 237, 0.068);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.item img{
+    height: 30px;
+}
+
+.zona_3{
+    position: fixed; 
+    bottom: 40px; 
+    right: 30px;
+}
+
+.zona_3 h1{
+    background-color: #1e4d8a;
+    padding: 5px 35px;
+    border-radius: 25px;
+    color: white;
+    font-size: 30px;
+    font-family: 'Trebuchet MS';
+    cursor: pointer;
+}
+
+.zona_3 h1:hover{
+    background-color: #163763;
+}
+

@@ -1,0 +1,25 @@
+<div class="background-container">
+    <div class="background-header">
+        <img (click)="modalMenu.abrirFormulario()" src="assets/menuh.png" alt="png" class="menuh">
+        <a [routerLink]="['/home']" class="title">NOA</a>
+        <img (click)="modalPerfil.abrirFormulario()" src="assets/perfil.png" alt="png" class="perfil">
+    </div>
+
+    <div class="contenido-scroll">
+        <ng-content></ng-content>
+    </div>
+
+    <div class="background-footer">
+
+    </div>
+</div>
+
+<app-menu-hamb 
+    [visible]="modalMenu.mostrarFormulario" 
+    (cerrar)="modalMenu.cerrarFormulario()">
+</app-menu-hamb>
+
+<app-profile
+    [visible]="modalPerfil.mostrarFormulario"
+    (cerrar)="modalPerfil.cerrarFormulario()">
+</app-profile>

@@ -1,0 +1,16 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #141d32;
+}
+
+:root{
+  --tipo-estudio: rgba(5, 105, 5, 0.753);
+  --tipo-personal: rgba(167, 150, 4, 0.753);
+  --tipo-trabajo: rgba(170, 5, 5, 0.753);
+  --tipo-salud: rgba(13, 3, 70, 0.753);
+  --tipo-otro: rgba(71, 70, 70, 0.753);
+}

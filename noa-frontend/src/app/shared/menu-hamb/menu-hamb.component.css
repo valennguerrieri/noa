@@ -1,0 +1,50 @@
+@import "../../../styles/menu.css";
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    
+    /* Estado inicial: invisible */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.contenedor{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100vh; /* Ocupa todo el alto */
+    width: 280px; 
+    background-color: #0d1421; /* Color de fondo (ajusta a tu gusto) */
+    color: white;
+    z-index: 1001; 
+    padding: 20px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+
+    transform: translateX(-100%); 
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modal-cobertura {
+    position: fixed; /*Se posiciona sobre TODA la ventana*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /*Para el fondo*/
+    backdrop-filter: blur(5px);           
+    
+    /*Posición del form*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000; 
+}

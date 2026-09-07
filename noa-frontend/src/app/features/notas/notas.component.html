@@ -1,0 +1,38 @@
+<app-background>
+
+    <div class="features-wrapper">
+        <div class="features-contenedor">
+
+            <div class="zona_1">
+                <h1 class="titulo">NOTAS</h1>
+
+                <div class="filtro">
+                    <select class="filtro-select" [value]="numColumnas" (change)="cambiarColumnas($event)">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <div class="nota-icono"></div>
+                </div>
+            </div>
+            
+            <div class="zona_2">
+                <app-list-notas [style.--num-columnas]="numColumnas"></app-list-notas>
+            </div>
+            
+            <div class="zona_3" (click)="modalNota.abrirFormulario()">
+                <h1 (click)="modalNota.abrirFormulario()"> + </h1>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="modalNota.mostrarFormulario" class="modal-cobertura" (click)="modalNota.cerrarFormulario()">
+        
+        <div class="modal-contenido">
+            <app-add-notas (cerrar)="modalNota.cerrarFormulario()"></app-add-notas>
+        </div>
+
+    </div>
+</app-background>

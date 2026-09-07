@@ -1,0 +1,121 @@
+<div class="form-container">
+    <!-- <div class="lapiz-fondo">
+        <img src="assets/lapiz.png" alt="lapiz">
+    </div> -->
+
+    <h1 class="titulo">MODIFICAR MOVIMIENTO</h1>
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+        <div class="form-grid">
+            <div class="form-etiqueta">
+                
+                <label for="fecha">Fecha</label>
+                <div class="form-input">
+                    <input type="date" id="fecha" formControlName="fecha"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['fecha'].getError('required') && form.controls['fecha'].touched){
+                        <span>La fecha es obligatoria..</span>
+                    }
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta">
+                <div class="form-tit">
+                    <label for="cat">Categoría</label>
+                </div>
+
+                <div class="form-input">
+                    <select id="categoria" formControlName="categoria">
+                        @for (cat of categoriasMostradas; track cat) {
+                            <option [value]="cat">{{ cat }}</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['categoria'].getError('required') && form.controls['categoria'].touched){
+                        <span>Debe elegir una categoría..</span>
+                    }
+                </div>
+            </div> 
+
+            
+            @if (tipoSeleccionado === 'gasto') {
+                <div class="form-etiqueta"> 
+                
+                    <label for="concepto">Concepto</label>
+                    <div class="form-input">
+                        <input type="text" id="concepto" formControlName="concepto" [maxlength]="30"> 
+                    </div>
+
+                    <div class="form-error">
+                        @if(form.controls['concepto'].getError('required') && form.controls['concepto'].touched){
+                            <span>Debe ingresar el concepto..</span>
+                        }
+                    </div>
+
+                </div> 
+            }
+            
+
+            <div class="form-etiqueta">
+                <label for="importe">Importe</label>
+
+                <div class="form-input">
+                    <input type="number" id="importe" formControlName="importe" min="0"> 
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['importe'].getError('required') && form.controls['importe'].touched){
+                        <span>Debe ingresar el importe..</span>
+                    }
+                    @if (form.controls['importe'].getError('min')) {
+                        <span>El importe debe ser mayor que 0..</span>
+                    }
+                    @if (form.controls['importe'].getError('max')) {
+                        <span>El importe es demasiado alto.</span>
+                    }
+                </div>
+
+                <div class="vista-previa" *ngIf="form.get('importe')?.value">
+                    ¿Es correcto?: 
+                    <span class="importe-lindo">
+                        {{ form.get('importe')?.value | currency:'ARS':'symbol-narrow':'1.0-2' }}
+                    </span>
+                </div>
+
+            </div> 
+
+
+            <div class="form-etiqueta"> 
+                
+                <label for="tipo">Tipo</label>
+                <div class="form-input">
+                    <select id="tipo" formControlName="tipo" #selectTipo (change)="cambiarTipo(selectTipo.value)">
+                        <option value="gasto">Gasto</option>
+                        <option value="ingreso">Ingreso</option>
+                    </select>
+                </div>
+
+                <div class="form-error">
+                    @if(form.controls['tipo'].getError('required') && form.controls['tipo'].touched){
+                        <span>Debe elegir una opción..</span>
+                    }
+                </div>
+
+            </div> 
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit"[disabled]="form.invalid" class="button-submit">Actualizar</button>
+            <button type="button" class="button-cancel" (click)="onCancelar()">Cancelar</button>
+        </div>
+
+     </form>
+
+</div>

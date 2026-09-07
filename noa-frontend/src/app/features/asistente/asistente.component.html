@@ -1,0 +1,50 @@
+<app-background>
+  <div class="features-wrapper">
+    <div class="features-contenedor">
+
+      <div class="zona_1">
+        <h1 class="titulo">ASISTENTE</h1>
+      </div>
+      
+      <div class="zona_2">
+        <div class="chat-container">
+            <div class="chat-header">
+              <div class="chat-avatar">
+                <img src="assets/noa-avatar.png" alt="noa">
+              </div>
+
+              <div class="info-noa">
+                <h1>NOA</h1>
+                <p>Tu asistente personal</p>
+              </div>
+            </div>
+      
+            <div class="chat-mensajes">
+              <div *ngFor="let msj of historial()" 
+                [ngClass]="{'fila-noa': msj.emisor === 'noa', 'fila-usuario': msj.emisor === 'usuario'}">
+              
+                <div class="burbuja">
+                  {{ msj.texto }}
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-controles">
+            
+              <div class="opciones-grid" *ngIf="!cargando()">         
+                <button *ngFor="let opcion of opcionesActuales()" 
+                        class="btn-opcion"
+                        (click)="seleccionarOpcion(opcion)">
+                  {{ opcion }}
+                </button>
+                
+              </div>
+            </div>
+        </div>
+      </div>
+
+    
+    </div>  
+  </div>
+
+</app-background>

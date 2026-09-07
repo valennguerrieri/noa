@@ -1,0 +1,11 @@
+@import "../../../styles/features.css";
+
+.zona_2{
+    padding: 20px; 
+}
+
+.nota-icono{
+    background-color: #c9d8ee;
+    width: 18px;
+    height: 18px;
+}

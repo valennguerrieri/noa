@@ -83,7 +83,8 @@ export class ElectronAuthService {
     await this.supabaseService.client.auth.signOut();
 
     localStorage.removeItem(this.KEY_SESION);
-    window.location.href = '/login';
+    // window.location.href = '/login';
+    this.router.navigate(['/login']);
   }
 
 }
